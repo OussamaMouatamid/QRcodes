@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <link rel="stylesheet" href="qr.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" >
+    <link rel="stylesheet" href="bootstrap/bootstrap-5.2.1-dist/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="qr.js" defer></script>
+
+ 
+    <title>QR Code Generator</title>
+    <style>
+      @keyframes movements {
+        0%{transform: translateY(0);}
+        50%{transform: translateY(-30%);}
+        75%{transform: translateY(20%);}
+        100%{transform: translateY(0);}
+      }
+    .img1{
+      animation: movements 1s linear infinite;
+      margin-left: 10px;
+    }
+    
+    </style>
+  </head>
+  <body>
+    <header class="p-4 mb-10 bg-warning" style="border-bottom: 1px solid black;">
+      <div class="container">
+        <div class="text-xl font-bold " style="font-size: 50px; color: black;"><strong>QR Code Generator</strong></div>
+      </div>
+    </header>
+    <main class="container" style="margin-left: 400px;"> 
+      <div class="d-flex align-items-center justify-content-center m-auto flex-md-row p-10">
+        <div class="w-100 ">
+          <h1 class="text-3xl font-bold mb-5 md:text-4xl" > <span style="border-bottom: 3px solid #000000;"> QR Code :</span></h1>
+          <p class="mb-4">
+            &emsp;this is a QR code generator that can help you generate any url to QR code 
+          </p>
+          <p>
+            &emsp;Enter your URL below to generate a QR Code <img src="arrowdown.png" width="20px" class="img1" >
+          </p>
+          <form id="generateform" class="mt-4">
+            <input id="url" type="url" placeholder="Enter your url" class="form-control mb-5" required> 
+            <select class="form-select mb-2"  name="size" id="size">
+              <option value="100" >100x100</option>
+              <option value="200">200x200</option>
+              <option value="300" selected>300x300</option>
+              <option value="400">400x400</option>
+              <option value="500">500x500</option>
+              <option value="600">600x600</option>
+              <option value="700">700x700</option>
+              <option value="800">800x800</option>
+            </select>
+            <button class="btn btn-warning w-100 py-3 mt-3" type="submit">
+              <strong><h4>Generate QR Code</h4></strong>
+            </button>
+          </form>
+        </div>
+        <div class="w-100 align-center">
+          <img class=" m-auto mb-5" src="qr.jpg" alt="">
+        </div>
+      </div>
+      <div id="generated" class="container text-center align-items-center justify-content-center mt-5" > 
+        <div id="loading" role="status" style="padding-right: 50%; ">
+          <span class="sr-only" style="margin-right: 5000px;"><h1>Loading...</h1></span>
+        </div> 
+        <div id="qrcode" style="margin-left: 150px; padding-bottom: 20px; ; "></div>
+      </div>
+    </main>
+    
+  </body>
+</html>
